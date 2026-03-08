@@ -164,4 +164,6 @@ void app_main(void) {
 
 ### 💡 提示
 
-（存疑）如果你的 `CMakeLists.txt` 中组件名大小写敏感导致找不到组件，请将 `REQUIRES AHT10` 改为 **`REQUIRES aht10`** (全小写)，这是 ESP-IDF 的标准命名习惯。
+如果你的 `CMakeLists.txt` 中组件名大小写敏感导致找不到组件，可尝试 `REQUIRES AHT10` 改为 **`REQUIRES aht10`** (全小写)，这是 ESP-IDF 的标准命名习惯。
+（存疑，可作为尝试手段）
+
