@@ -107,16 +107,17 @@ _注：根据 ESP-IDF 规范，组件名通常由文件夹名决定。_
 在你的 `.c` 文件中引入头文件并调用 API：
 #### 调用说明
 先创建aht10_sensor_t实例（必要）
-如果需要单独的数据容器，还可创建aht10_data_t实例（可选）,如aht10_data_t mydata;
-读取数据时**esp_err_t aht10_read**`**(aht10_sensor_t *sensor, aht10_data_t *data)中的data参数,
-可传入mydata作为数据容器,此时会同时更新`1sensor->last_data`(`aht10_data_t类型`)和`mydata`(`aht10_data_t类型`)的值
-也可参数可传入NULL，此时只更新`1sensor->last_data`的值, 需要在完成读取后，访问`1sensor->last_data`,获取数据
-aht10_data_t类型数据下,有
+如果需要单独的数据容器，还可创建aht10_data_t实例（可选）,如`aht10_data_t mydata`;  
+读取数据时**esp_err_t aht10_read**`(aht10_sensor_t *sensor, aht10_data_t *data)`中的`data`参数,  
+可以传入`mydata`作为数据容器,此时会同时更新`1sensor->last_data`(`aht10_data_t类型`)和`mydata`(`aht10_data_t类型`)的值;  
+也可以参数可传入`NULL`，此时只更新`1sensor->last_data`的值, 需要在完成读取后，访问`1sensor->last_data`,获取数据。  
+aht10_data_t类型数据下,有  
+
 ```c
     float humidity;   // 湿度 %RH
     float temperature;// 温度 ℃
-```c
-两个成员,访问这两个成员即可获取数据.
+```
+两个成员,访问这两个成员即可获取数据.  
 
 ```c
 #include "aht10_sensor.h" // 直接引用，无需路径前缀
@@ -165,5 +166,6 @@ void app_main(void) {
 
 如果你的 `CMakeLists.txt` 中组件名大小写敏感导致找不到组件，可尝试 `REQUIRES AHT10` 改为 **`REQUIRES aht10`** (全小写)，这是 ESP-IDF 的标准命名习惯。
 （存疑，可作为尝试手段）
+
 
 
