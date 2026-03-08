@@ -38,11 +38,12 @@
 
 - **ESP-IDF**: v4.4 或更高版本 (此处基于v5.5.2)，vscode集成环境
 - **开始前准备**  
-1.在vscode中打开工程文件夹后，请先在左侧边栏点击`ESP IDF`图标, 进入IDF配置, =>`Advanced` =>`添加.vscode 子目录文件`  
-2.下边工具栏选择乐鑫目标 ESP32S3（一般选via builtin USB-JTAG，直接连接到电脑进行JTAG调试）
+  1.直接解压，在vscode中打开工程文件夹后，请先在左侧边栏点击`ESP IDF`图标, 进入IDF配置, =>`Advanced` =>`添加.vscode 子目录文件`  
+  2. 如果需要使用JTAG下载和调试，下边工具栏选择乐鑫目标 ESP32S3（一般选via builtin USB-JTAG，直接连接到电脑进行JTAG调试）  
+    **注意！** 这一步会导致`sdkconfig`中的配置文件被重置,你可以在`sdkconfig.old`中,将原来的配置文件,复制回`sdkconfig`
 
 ### 2. 编译与烧录
-直接解压，运行 **"编译、烧录和监视"**
+运行 **"编译、烧录和监视"**
 
 ### 3. 预期输出
 
@@ -168,6 +169,7 @@ void app_main(void) {
 ### 💡 提示
 
 可在aht10_init()函数中，修改ESP Log的过滤层级，开启或关闭debug信息。
+
 
 
 
