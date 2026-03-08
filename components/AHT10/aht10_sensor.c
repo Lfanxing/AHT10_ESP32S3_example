@@ -151,7 +151,7 @@ esp_err_t aht10_init(aht10_sensor_t *sensor) {
     if (sensor == NULL) return ESP_ERR_INVALID_ARG;
 
     // 配置日志级别
-    esp_log_level_set(AHT10_TAG, ESP_LOG_DEBUG);    //只有debug过滤等级以上，才会打印ESP_LOGD信息，可自行配置
+    //esp_log_level_set(AHT10_TAG, ESP_LOG_DEBUG);    //只有debug过滤等级以上，才会打印ESP_LOGD信息，可自行配置
     //esp_log_level_set(AHT10_TAG, ESP_LOG_INFO);   //仅打印INFO等级以上的Log信息（如ESP_LOGI）
 
     // 1. 初始化传感器对象基础成员
@@ -385,4 +385,5 @@ void aht10_deinit(aht10_sensor_t *sensor) {
     // 重置状态标志
     sensor->is_initialized = false;
     sensor->last_data.is_valid = false;
+
 }
