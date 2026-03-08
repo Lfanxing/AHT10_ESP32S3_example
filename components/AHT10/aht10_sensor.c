@@ -153,7 +153,9 @@ esp_err_t aht10_init(aht10_sensor_t *sensor) {
     // 配置日志级别
     //esp_log_level_set(AHT10_TAG, ESP_LOG_DEBUG);    //只有debug过滤等级以上，才会打印ESP_LOGD信息，可自行配置
     //esp_log_level_set(AHT10_TAG, ESP_LOG_INFO);   //仅打印INFO等级以上的Log信息（如ESP_LOGI）
-
+    // int lv = (int)esp_log_level_get(AHT10_TAG);  //获取并打印当前日志级别：3-INFO, 4-DEBUG
+    // ESP_LOGI(AHT10_TAG, "log lv : %d", lv);
+    
     // 1. 初始化传感器对象基础成员
     sensor->i2c_num = AHT10_I2C_NUM;
     sensor->i2c_addr = AHT10_I2C_ADDR;
@@ -387,3 +389,4 @@ void aht10_deinit(aht10_sensor_t *sensor) {
     sensor->last_data.is_valid = false;
 
 }
+
